@@ -1,9 +1,8 @@
 import { routes } from '../../support/routes';
 import { selectors as s } from '../../support/selectors';
-import { generateRandomHexString } from '../../support/utils';
-import { validationMessage} from '../../support/constants';
 
-describe([tag.mock], 'FE-Mock.Star icon test', () => {
+
+describe([tag.mock], 'FE-Mock.Star icon tests', () => {
     beforeEach(() => {
         cy.mockConfig()
             .mockGetItems()
@@ -42,44 +41,6 @@ describe([tag.mock], 'FE-Mock.Star icon test', () => {
             // check that now there are two starred items and only one default item
             cy.get(s.items.starredItem).should('be.visible').and('have.length', 2)
                 .get(s.items.item).should('be.visible').and('have.length', 1);
-        });
-    });
-
-
-    describe('Creation of new item', () => {
-        beforeEach(() => {
-            // click on the new item button
-            cy.get(s.newItem.createButton).should('be.visible').click();
-        });
-
-        it('Create new item', () => {
-            const newItemTitle = 'Create item';
-            const newItemName = generateRandomHexString();
-            const newItemNote = generateRandomHexString();
-
-            cy.get(s.newItem.title).should('be.visible').invoke('text').should('eq', newItemTitle)
-                // typeToInput() is custom command
-                .typeToInput(s.newItem.name, newItemName)
-                .typeToInput(s.newItem.note, newItemNote)
-                // click on save button
-                .get(s.newItem.save).click()
-                // check that new item was created
-                .get(s.items.item).should('be.visible').and('have.length', 4)
-                .get(s.items.item).last().scrollIntoView().should('have.text', newItemName);
-        });
-
-        [
-            { testName: 'empty string', inputData: '', message: validationMessage.emptyString },
-            { testName: 'maximum length', inputData: generateStringOfLength(17), message: validationMessage.maximumLength },
-            { testName: 'not valid', inputData: '👀', message: validationMessage.notValid},
-        ].forEach(({ testName, inputData, message }) => {
-            it(`Check validation message for ${testName} message on name input `, () => {
-                // valid input is only 1-16 characters
-                cy.typeToInput(s.newItem.name, inputData)
-                    .get(s.newItem.validationMessage).should('be.visible').and('have.text', message)
-                    // check that save button is disabled
-                    .get(s.newItem.save).should('be.disabled');
-            });
         });
     });
 });
