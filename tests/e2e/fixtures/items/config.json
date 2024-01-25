@@ -1,8 +1,8 @@
 {
-	"login": {
-		"mock": true
-	},
-	"api": {
-		"mock": true
-	}
+    "login": {
+        "mock": true
+    },
+    "api": {
+        "mock": true
+    }
 }

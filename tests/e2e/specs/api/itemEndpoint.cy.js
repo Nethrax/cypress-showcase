@@ -17,16 +17,16 @@ describe([tag.api], 'E2E.API - Items endpoint', () => {
         cy.postItem(adminToken, defaultItem);
         cy.getItems(adminToken, false).then((response) => {
             assert.equal(response.status, 200);
-            assert.equal(response.body.items, 1)
-            assert.equal(response.body.name, defaultItem.name)
-            assert.equal(response.body.name, defaultItem.name)
-            assert.equal(response.body.note, defaultItem.note)
+            assert.equal(response.body.items.length, 1)
+            assert.equal(response.body.id[0], defaultItem.id)
+            assert.equal(response.body.name[0], defaultItem.name)
+            assert.equal(response.body.note[0], defaultItem.note)
         });
     });
 
     [
         { input: defaultItem, expectedStatus: 200, testName: 'valid data' },
-		{ input: { ...defaultItem, name: '' }, expectedStatus: 400, testName: 'invalid data - empty name' },
+        { input: { ...defaultItem, name: '' }, expectedStatus: 400, testName: 'invalid data - empty name' },
         { input: { ...defaultItem, note: '' }, expectedStatus: 400, testName: 'invalid data - empty note' },
     ].forEach(({ input, expectedStatus, testName }) => {
         it(`POST /items returns status ${expectedStatus} on ${testName}`, function () {

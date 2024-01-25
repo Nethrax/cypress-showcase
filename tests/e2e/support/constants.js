@@ -10,7 +10,7 @@ export const users = {
 }
 
 export const validationMessage = {
-	emptyString: 'Empty string is not valid input.',
+    emptyString: 'Empty string is not valid input.',
     maximumLength: 'Maximum length is 16 characters.',
     notValid: 'Not valid input.'
 }

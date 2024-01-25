@@ -1,5 +1,5 @@
 {
-	"items": [{
+    "items": [{
         "id": "1",
         "name": "First item",
         "note": "This is note of first item"
@@ -9,7 +9,7 @@
         "name": "Second item",
         "note": "This is note of second item"
     }],
-	"starredItems": [
+    "starredItems": [
         {
             "id": "3",
             "name": "Third item",

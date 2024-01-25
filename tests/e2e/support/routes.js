@@ -1,4 +1,4 @@
 export const routes = {
     default: '/',
-	items: '/items',
+    items: '/items',
 }

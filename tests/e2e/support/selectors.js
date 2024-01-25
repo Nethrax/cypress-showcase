@@ -7,7 +7,7 @@ const {
 const items = {
     item: '[data-test=item]',
     starredItem: '[data-test=starred-item]',
-	message: '[data-test=message-box]',
+    message: '[data-test=message-box]',
 }
 
 const newItem = {

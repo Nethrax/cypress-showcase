@@ -1,8 +1,8 @@
 export function headers (token) {
-	return {
-		Authorization: `Bearer ${token}`,
-		Accept: 'application/json',
-	};
+    return {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+    };
 }
 
 export function generateRandomHexString() {
@@ -12,5 +12,5 @@ export function generateRandomHexString() {
 }
 
 export const generateStringOfLength = (length) => {
-	return 'a'.repeat(length);
+    return 'a'.repeat(length);
 }

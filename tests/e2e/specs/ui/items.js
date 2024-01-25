@@ -9,11 +9,11 @@ const newItemNote = generateRandomHexString();
 const defaultItem = dataDefaults.item();
 
 describe([tag.ui], 'E2E.Items tests', () => {
-	before(() => {
-		cy.getToken(users.user.username, users.user.password).its(token).then((token) => {
-			userToken = token;
-		});
-	});
+    before(() => {
+        cy.getToken(users.user.username, users.user.password).its(token).then((token) => {
+            userToken = token;
+        });
+    });
 
     beforeEach(() => {
         cy.dbDelete()
