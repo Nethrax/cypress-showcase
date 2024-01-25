@@ -1,2 +1,3 @@
 # cypress-showcase
-Showcase of cypress test based on real tests
+Showcase of real cypress tests but with anonymized data.
+This repository contains API, component, mock and UI cypress tests.

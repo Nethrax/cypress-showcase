@@ -1,0 +1,19 @@
+{
+	"items": [{
+        "id": "1",
+        "name": "First item",
+        "note": "This is note of first item"
+    },
+    {
+        "id": "2",
+        "name": "Second item",
+        "note": "This is note of second item"
+    }],
+	"starredItems": [
+        {
+            "id": "3",
+            "name": "Third item",
+            "note": "This is note of third item which is starred"
+        }    
+    ]
+}
